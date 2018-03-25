@@ -49,9 +49,41 @@ def encrypt():
     message = request.form["text"]
 
     encrypted_string = rotate_string(message, rotate)
+    
+    form ="""
+    <!DOCTYPE html>
 
-    content = "<h1>" + encrypted_string + "</h1>"
+    <html>
+        <head>
+            <style>
+                form {{
+                    background-color: #eee;
+                    padding: 20px;
+                    margin: 0 auto;
+                    width: 540px;
+                    font: 16px sans-serif;
+                    border-radius: 10px;
+                }}
+                textarea {{
+                    margin: 10px 0;
+                    width: 540px;
+                    height: 120px;
+                }}
+            </style>
+        </head>
+        <body>
+            <form action="/encrypt" method="post">
+                 <label for="rot">Rotate by:</label>
+                <input id="rot" type="text" name="rot" value=0 />
+                <textarea name="text">{0}</textarea>
+                <input type="submit" />
+                </form>
+        </body>
+    </html>
+    """.format(encrypted_string)
 
-    return content
+    #content = "<h1>" + encrypted_string + "</h1>"
+
+    return form
 
 app.run()
