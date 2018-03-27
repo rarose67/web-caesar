@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href="/static/styles/style.css" />
+    </head>
+    <body>
+      <form action="/encrypt" method="post">
+             <label for="rot">Rotate by:</label>
+            <input id="rot" type="text" name="rot" value=0 />
+            <textarea name="text">{{message}}</textarea>
+            <input type="submit" />
+        </form>
+    </body>
+</html>
